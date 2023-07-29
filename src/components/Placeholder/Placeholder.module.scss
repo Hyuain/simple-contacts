@@ -1,0 +1,14 @@
+@import "@/styles/variables.scss";
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 100px;
+  color: $water-mark;
+}

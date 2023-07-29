@@ -1,13 +1,12 @@
 import s from './WireFrame.module.scss'
-import { Menu } from 'antd'
 import { Outlet } from 'react-router-dom'
+import { Sider } from '../Sider/Sider.tsx'
 
 export const WireFrame = () => {
+
   return <div className={s.wrapper}>
-    This is WireFrame
     <div className={s.sider}>
-      {/*<Menu />*/}
-      This is Sider
+      <Sider />
     </div>
     <div className={s.content}>
       <Outlet />

@@ -1,11 +1,11 @@
 .wrapper {
   display: flex;
+  width: 100vw;
+  height: 100vh;
   .sider {
-    width: 30%;
+    width: 200px;
   }
-
   .content {
-
+    flex-grow: 1;
   }
 }
-
