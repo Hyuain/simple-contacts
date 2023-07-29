@@ -1,3 +1,10 @@
 .wrapper {
   display: flex;
+  height: 100%;
+  .listAndFilter {
+    width: 400px;
+  }
+  .detail {
+    flex-grow: 1;
+  }
 }

@@ -1,0 +1,22 @@
+.wrapper {
+  border: 1px solid red;
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  .left {
+    .image {
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
+  .right {
+    .name {
+
+    }
+    .species {
+
+    }
+  }
+}

@@ -6,17 +6,18 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import { Contact } from './components/Contact/Contact.tsx'
 import { ContactDetail } from './components/Contact/components/ContactDetail/ContactDetail.tsx'
 import { Placeholder } from './components/Placeholder/Placeholder.tsx'
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, ThemeConfig } from 'antd'
 
+const antdTheme: ThemeConfig = {
+  token: {
+    colorPrimary: '#fa8c16'
+  }
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: '#fa8c16'
-        }
-      }}
+      theme={antdTheme}
     >
       <HashRouter>
         <Routes>

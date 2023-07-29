@@ -1,0 +1,3 @@
+interface IContactListProps {
+  className?: string
+}
