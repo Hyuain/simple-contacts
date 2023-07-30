@@ -1,0 +1,76 @@
+.header {
+  border: 1px solid red;
+  padding: 32px 40px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  .headerLeft {
+    flex-shrink: 0;
+    .headerImage {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+  }
+  .headerRight {
+    flex-grow: 1;
+  }
+}
+
+.content {
+  border: 1px solid black;
+  padding: 32px;
+  .section {
+    border: 1px solid gray;
+    &:not(:first-child) {
+      margin-top: 32px;
+    }
+    .sectionTitle {
+
+    }
+    .sectionCard {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid blue;
+    }
+  }
+}
+
+.records {
+
+}
+
+.recordWrapper {
+  display: flex;
+  align-items: center;
+  .recordLabel {
+    width: 120px;
+    font-weight: bold;
+    margin-right: 16px;
+  }
+  .recordValue {
+
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .recordWrapper {
+    &.halfRecord {
+      width: 100%;
+    }
+    &.fullRecord {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .recordWrapper {
+    &.halfRecord {
+      width: 50%;
+    }
+    &.fullRecord {
+      width: 100%;
+    }
+  }
+}
