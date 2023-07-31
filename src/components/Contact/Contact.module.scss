@@ -2,9 +2,11 @@
   display: flex;
   height: 100%;
   .listAndFilter {
-    width: 400px;
+    width: 360px;
+    flex-shrink: 0;
   }
   .detail {
     flex-grow: 1;
+    height: 100%;
   }
 }

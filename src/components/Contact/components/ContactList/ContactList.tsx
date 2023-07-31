@@ -4,10 +4,11 @@ import { ContactListItem } from '../ContactListItem/ContactListItem.tsx'
 import { useEffect, useRef, useState } from 'react'
 import { Character, getCharacters } from 'rickmortyapi'
 import { IOnFilterCallbackParams } from '../ContactListFilter/ContactListFilter.interface.ts'
-import { pruneRequestParams } from '../../../../utils/requestUtils.ts'
+import { pruneRequestParams } from '@/utils/requestUtils.ts'
 import classNames from 'classnames'
 import { CharacterFilter } from 'rickmortyapi/dist/interfaces'
 import { useDebounceFn, useThrottleFn } from 'ahooks'
+import { useNavigate } from 'react-router-dom'
 
 const SCROLL_BOTTOM_THRESHOLD = 100
 
@@ -15,10 +16,10 @@ export const ContactList = (props: IContactListProps) => {
   const [totalPages, setTotalPages] = useState<number>(Infinity)
   const [nextPage, setNextPage] = useState(1)
   const [characterList, setCharacterList] = useState<Character[]>([])
-  const loadingRef = useRef(false)
   const [filters, setFilters] = useState<CharacterFilter>({})
   const scrollListRef = useRef<HTMLDivElement | null>(null)
   const requestIDRef = useRef<number | null>(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchCharacters(true)
@@ -65,7 +66,6 @@ export const ContactList = (props: IContactListProps) => {
     setTotalPages(newTotalPages)
     setCharacterList(newCharacterList)
     setNextPage(newNextPage)
-    loadingRef.current = false
   }
 
   function handleListScrolled(e: any) {
@@ -74,6 +74,10 @@ export const ContactList = (props: IContactListProps) => {
     if (bottom < SCROLL_BOTTOM_THRESHOLD) {
       fetchCharacters(false)
     }
+  }
+
+  function handleListItemSelected(character: Character) {
+    navigate(`/contact/${character.id}`)
   }
 
   return (
@@ -90,7 +94,13 @@ export const ContactList = (props: IContactListProps) => {
         className={s.list}
       >
         {characterList.map((character) => {
-          return <ContactListItem key={character.id} character={character} />
+          return (
+            <ContactListItem
+              onSelect={handleListItemSelected}
+              key={character.id}
+              character={character}
+            />
+          )
         })}
       </div>
     </div>

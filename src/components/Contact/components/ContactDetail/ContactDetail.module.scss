@@ -1,5 +1,9 @@
+.contentDetailWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
-  border: 1px solid red;
   padding: 32px 40px;
   display: flex;
   gap: 24px;
@@ -18,10 +22,10 @@
 }
 
 .content {
-  border: 1px solid black;
   padding: 32px;
+  flex-grow: 1;
+  overflow: scroll;
   .section {
-    border: 1px solid gray;
     &:not(:first-child) {
       margin-top: 32px;
     }
@@ -31,7 +35,6 @@
     .sectionCard {
       display: flex;
       flex-wrap: wrap;
-      border: 1px solid blue;
     }
   }
 }
@@ -73,4 +76,8 @@
       width: 100%;
     }
   }
+}
+
+.episodesTable {
+  width: 100%;
 }

@@ -4,6 +4,7 @@
   height: 100vh;
   .sider {
     width: 200px;
+    flex-shrink: 0;
   }
   .content {
     flex-grow: 1;

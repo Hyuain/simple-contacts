@@ -1,5 +1,6 @@
 @import "antd/dist/reset.css";
 @import "./variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar {
@@ -10,4 +11,8 @@
 * {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+* {
+  font-family: Lato, sans-serif;
 }

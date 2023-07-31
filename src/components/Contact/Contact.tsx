@@ -6,9 +6,7 @@ export const Contact = () => {
   return (
     <div className={s.wrapper}>
       <ContactList className={s.listAndFilter} />
-      <div className={s.detail}>
-        <Outlet />
-      </div>
+      <Outlet context={{ className: s.detail }} />
     </div>
   )
 }
