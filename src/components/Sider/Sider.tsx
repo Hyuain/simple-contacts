@@ -25,6 +25,7 @@ export const Sider = (props: ISiderProps) => {
 
   return (
     <div className={classNames(props.className, s.menuWrapper)}>
+      <div className={s.siderHeader}>Rick and Morty</div>
       <Menu
         theme="dark"
         selectedKeys={[rootPath]}

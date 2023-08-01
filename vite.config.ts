@@ -5,6 +5,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/simple-contacts/',
   plugins: [react(), viteSvgr()],
   resolve: {
     alias: {

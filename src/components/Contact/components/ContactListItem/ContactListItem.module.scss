@@ -1,9 +1,23 @@
+@import "@/styles/variables.scss";
+
 .wrapper {
   display: flex;
   padding: 12px;
   align-items: center;
   cursor: pointer;
   gap: 8px;
+  transition: all .2s;
+  &:hover {
+    background-color: $hover-bg-primary;
+  }
+  &.selected {
+    background-color: $selected-bg-primary;
+    .right {
+      .name, .species {
+        color: $gray-1;
+      }
+    }
+  }
   .left {
     .image {
       width: 50px;
@@ -13,10 +27,11 @@
   }
   .right {
     .name {
-
+      font-weight: bold;
+      color: $text-color;
     }
     .species {
-
+      color: $gray-7;
     }
   }
 }

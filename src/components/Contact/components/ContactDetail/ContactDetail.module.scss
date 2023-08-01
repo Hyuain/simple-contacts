@@ -1,13 +1,19 @@
+@import "@/styles/variables.scss";
+
 .contentDetailWrapper {
   display: flex;
   flex-direction: column;
+  background-color: $bg-gray;
+  color: $text-color;
 }
 
 .header {
   padding: 32px 40px;
   display: flex;
-  gap: 24px;
+  gap: 32px;
   align-items: center;
+  background-color: $primary-dark;
+  color: $gray-1;
   .headerLeft {
     flex-shrink: 0;
     .headerImage {
@@ -18,6 +24,8 @@
   }
   .headerRight {
     flex-grow: 1;
+    font-weight: bold;
+    font-size: 56px;
   }
 }
 
@@ -26,37 +34,44 @@
   flex-grow: 1;
   overflow: scroll;
   .section {
+    background-color: $gray-1;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.01);
     &:not(:first-child) {
       margin-top: 32px;
     }
     .sectionTitle {
-
+      font-weight: bold;
     }
     .sectionCard {
-      display: flex;
-      flex-wrap: wrap;
     }
   }
 }
 
-.records {
-
+.recordsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px 12px;
+  width: 100%;
 }
 
 .recordWrapper {
   display: flex;
   align-items: center;
+  &:not(:first-child) {
+    margin-top: 12px;
+  }
   .recordLabel {
     width: 120px;
-    font-weight: bold;
     margin-right: 16px;
+    color: $gray-7;
   }
   .recordValue {
-
   }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1400px) {
   .recordWrapper {
     &.halfRecord {
       width: 100%;
@@ -67,7 +82,7 @@
   }
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1400px) {
   .recordWrapper {
     &.halfRecord {
       width: 50%;

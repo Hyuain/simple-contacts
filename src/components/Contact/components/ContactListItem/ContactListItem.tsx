@@ -1,16 +1,21 @@
 import s from './ContactListItem.module.scss'
 import { IContactListItemProps } from './ContactListItem.interface.ts'
+import classNames from 'classnames'
 
 export const ContactListItem = ({
   character,
   onSelect,
+  selected,
 }: IContactListItemProps) => {
   function handleListItemClicked() {
     onSelect?.(character)
   }
 
   return (
-    <div onClick={handleListItemClicked} className={s.wrapper}>
+    <div
+      onClick={handleListItemClicked}
+      className={classNames(s.wrapper, { [s.selected]: selected })}
+    >
       <div className={s.left}>
         <img className={s.image} src={character.image} alt={character.name} />
       </div>

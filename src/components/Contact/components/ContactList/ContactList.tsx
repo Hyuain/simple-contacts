@@ -8,7 +8,7 @@ import { pruneRequestParams } from '@/utils/requestUtils.ts'
 import classNames from 'classnames'
 import { CharacterFilter } from 'rickmortyapi/dist/interfaces'
 import { useDebounceFn, useThrottleFn } from 'ahooks'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const SCROLL_BOTTOM_THRESHOLD = 100
 
@@ -20,6 +20,7 @@ export const ContactList = (props: IContactListProps) => {
   const scrollListRef = useRef<HTMLDivElement | null>(null)
   const requestIDRef = useRef<number | null>(null)
   const navigate = useNavigate()
+  const selectedCharacterId = Number(useParams().id)
 
   useEffect(() => {
     fetchCharacters(true)
@@ -96,6 +97,7 @@ export const ContactList = (props: IContactListProps) => {
         {characterList.map((character) => {
           return (
             <ContactListItem
+              selected={character.id === selectedCharacterId}
               onSelect={handleListItemSelected}
               key={character.id}
               character={character}

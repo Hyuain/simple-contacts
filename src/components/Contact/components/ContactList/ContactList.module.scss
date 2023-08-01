@@ -1,10 +1,18 @@
+@import "@/styles/variables.scss";
+
 .wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  z-index: 10;
   .header {
     padding: 16px;
     flex-shrink: 0;
+    h1 {
+      color: $text-color;
+      font-weight: bold;
+    }
   }
   .list {
     overflow: scroll;

@@ -34,14 +34,14 @@ const EPISODE_TABLE_COLUMNS: ColumnsType<Episode> = [
 
 export const ContactDetail = () => {
   const [character, setCharacter] = useState<Character | null>(null)
-  const { id } = useParams()
+  const id = Number(useParams().id)
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const { className: outletClassName } = useOutletContext<{
     className: string
   }>()
 
   useEffect(() => {
-    getCharacter(Number(id)).then((response) => {
+    getCharacter(id).then((response) => {
       console.log(response.data)
       setCharacter(response.data)
       fetchEpisodes(response.data)
@@ -53,7 +53,15 @@ export const ContactDetail = () => {
       return Number(episode.split('/').pop())
     })
     getEpisode(episodeIds).then((response) => {
-      setEpisodes(response.data)
+      let nextEpisodes = response.data
+      if (!nextEpisodes) {
+        return
+      }
+      if (!Array.isArray(nextEpisodes)) {
+        nextEpisodes = [nextEpisodes]
+      }
+      console.log('eps', nextEpisodes)
+      setEpisodes(nextEpisodes)
     })
   }
 
@@ -81,22 +89,24 @@ export const ContactDetail = () => {
             alt={character?.name}
           />
         </div>
-        <h1 className={s.headerRight}>{character?.name}</h1>
+        <div className={s.headerRight}>{character?.name}</div>
       </div>
       <div className={s.content}>
         <div className={s.section}>
           <h2 className={s.sectionTitle}>Personal Info</h2>
           <div className={s.sectionCard}>
-            {records.map((record) => {
-              return (
-                <Record
-                  key={record.label}
-                  label={record.label}
-                  value={record.value}
-                  size={record.size}
-                />
-              )
-            })}
+            <div className={s.recordsWrapper}>
+              {records.map((record) => {
+                return (
+                  <Record
+                    key={record.label}
+                    label={record.label}
+                    value={record.value}
+                    size={record.size}
+                  />
+                )
+              })}
+            </div>
           </div>
         </div>
         <div className={s.section}>

@@ -2,16 +2,16 @@
 @import "./variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-*::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-* {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+///* Hide scrollbar for Chrome, Safari and Opera */
+//*::-webkit-scrollbar {
+//  display: none;
+//}
+//
+///* Hide scrollbar for IE, Edge and Firefox */
+//* {
+//  -ms-overflow-style: none;  /* IE and Edge */
+//  scrollbar-width: none;  /* Firefox */
+//}
 
 * {
   font-family: Lato, sans-serif;
