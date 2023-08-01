@@ -6,6 +6,7 @@ import {
 } from './ContactListFilter.interface.ts'
 import { useState } from 'react'
 import s from './ContactListFilter.module.scss'
+import { ReactComponent as FilterClearSVG } from '@/assets/icons/filterClear.svg'
 
 const STATUS_OPTIONS = [
   { label: 'alive', value: CharacterStatus.ALIVE },
@@ -45,6 +46,15 @@ export const ContactListFilter = (props: IContactListFilterProps) => {
     triggerFilter({ gender: nextGender })
   }
 
+  function handleFilterClearClicked() {
+    setStatus(CharacterStatus.NULL)
+    setGender(CharacterGender.NULL)
+    triggerFilter({
+      gender: CharacterGender.NULL,
+      status: CharacterStatus.NULL,
+    })
+  }
+
   function triggerFilter(params: {
     name?: string
     status?: CharacterStatus
@@ -63,6 +73,7 @@ export const ContactListFilter = (props: IContactListFilterProps) => {
       <Input placeholder="Search Characters" onChange={handleInputChanged} />
       <div className={s.dropdowns}>
         <Select
+          value={status === CharacterStatus.NULL ? undefined : status}
           className={s.dropdown}
           allowClear
           placeholder="Status"
@@ -70,11 +81,16 @@ export const ContactListFilter = (props: IContactListFilterProps) => {
           onChange={handleStatusChanged}
         />
         <Select
+          value={gender === CharacterGender.NULL ? undefined : gender}
           className={s.dropdown}
           allowClear
           placeholder="Gender"
           options={GENDER_OPTIONS}
           onChange={handleGenderChanged}
+        />
+        <FilterClearSVG
+          onClick={handleFilterClearClicked}
+          className={s.filterClear}
         />
       </div>
     </div>

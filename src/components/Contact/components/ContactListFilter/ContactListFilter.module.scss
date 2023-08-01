@@ -1,8 +1,21 @@
+@import "@/styles/variables.scss";
+
 .dropdowns {
   display: flex;
   margin-top: 8px;
   gap: 8px;
+  align-items: center;
   .dropdown {
     min-width: 120px;
+  }
+  .filterClear {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: $gray-6;
+    transition: all .2s;
+    &:hover {
+      color: $primary;
+    }
   }
 }
