@@ -88,10 +88,12 @@ export const ContactListFilter = (props: IContactListFilterProps) => {
           options={GENDER_OPTIONS}
           onChange={handleGenderChanged}
         />
-        <FilterClearSVG
-          onClick={handleFilterClearClicked}
-          className={s.filterClear}
-        />
+        {status !== CharacterStatus.NULL || gender !== CharacterGender.NULL ? (
+          <FilterClearSVG
+            onClick={handleFilterClearClicked}
+            className={s.filterClear}
+          />
+        ) : null}
       </div>
     </div>
   )
