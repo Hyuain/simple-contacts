@@ -42,7 +42,6 @@ export const ContactDetail = () => {
 
   useEffect(() => {
     getCharacter(id).then((response) => {
-      console.log(response.data)
       setCharacter(response.data)
       fetchEpisodes(response.data)
     })
@@ -60,7 +59,6 @@ export const ContactDetail = () => {
       if (!Array.isArray(nextEpisodes)) {
         nextEpisodes = [nextEpisodes]
       }
-      console.log('eps', nextEpisodes)
       setEpisodes(nextEpisodes)
     })
   }
